@@ -1,0 +1,5 @@
+batch_size: 128
+learning_rate: 0.1
+epochs: 30
+temperature: 0.07
+calibration_weight: 0.5
