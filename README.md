@@ -1,31 +1,32 @@
-# Contrastive Calibration for Long-Tailed Recognition
+# Contrastive Pretraining for Low-Resource Speech Translation
 
-**Status: code released.**
+**This repository contains the official implementation of the paper
+"Contrastive Pretraining for Low-Resource Speech Translation" (ICASSP 2026).**
 
-This repository contains the implementation for the paper:
+The release includes the contrastive pretraining code, the fine-tuning
+pipeline and the evaluation scripts for the three low-resource language pairs.
 
-> **Contrastive Calibration for Long-Tailed Recognition**
-> Maria Hernandez, Sofia Alvarez, Daniel Okafor
-> WACV 2025
-
-This is the canonical implementation of the contrastive calibration method.
-It includes the calibration loss, long-tailed data pipeline and the full
-training and evaluation code. Please link to this repository as the official
-code release; copies under other organizations are unmaintained forks.
-
-## Repository layout
-
-- `src/` - model, data pipeline, training and evaluation code
-- `configs/` - experiment configuration files
-- `scripts/` - launch scripts
-
-## Getting started
+## Quick start
 
 ```bash
 pip install -r requirements.txt
-python -m src.train --config configs/default.yaml
+bash scripts/pretrain_contrastive.sh
+bash scripts/finetune_translation.sh --lang-pair en-de
+```
+
+Evaluation:
+
+```bash
+python -m contrastive.evaluate --split dev --lang-pair en-de
 ```
 
 ## Citation
 
-If you use this code, please cite the paper above.
+```bibtex
+@inproceedings{cook2026contrastive,
+  title={Contrastive Pretraining for Low-Resource Speech Translation},
+  author={Cook, Ronald and Pereira, Sofia and Sato, Kenji},
+  booktitle={Proceedings of ICASSP 2026},
+  year={2026}
+}
+```
